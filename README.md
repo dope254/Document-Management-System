@@ -10,7 +10,7 @@ Source code employs ES6 syntax traspiled down to ES5 using Babel.
 #### Key Application Features 
 A created user will have a role: admin, regular. 
 - Regular, rated/restricted Users can: 
-    - Create an account 
+    - Create an account  
     - Login
     - Create a document
     - Limit access to a document by specifying an access group `i.e. public, private or role`.
