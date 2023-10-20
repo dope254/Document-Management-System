@@ -12,7 +12,7 @@ A created user will have a role: admin, regular.
 - Regular, rated/restricted Users can: 
     - Create an account  
     - Login
-    - Create a document 
+    - Create a document  
     - Limit access to a document by specifying an access group `i.e. public, private or role`.
     - View public documents created by other users.
     - View documents created by their access group with access level set as `role`.
