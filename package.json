@@ -1,8 +1,8 @@
 {
-  "name": "document-management-system",
+  "name": "intranet",
   "version": "1.0.0",
   "node": "v6.10.0",
-  "description": "This is a system (API) that manages documents with users and user roles. Each document defines access rights; the document defines which roles can access it. Also, each document specifies the date it was published. It is built with NodeJS, Express and Postgres as it's database. Source code employs ES6 syntax traspiled down to ES5 using Babel.",
+  "description": "This is a system (API) for nairobi city county intranet that manages documents with users and user roles. Each document defines access rights; the document defines which roles can access it. Also, each document specifies the date it was published. It is built with NodeJS, Express and Postgres as it's database. Source code employs ES6 syntax traspiled down to ES5 using Babel.",
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test istanbul cover _mocha -- -R spec server/test/**/*.spec.js client/src/test/reducers/**/*.spec.js --compilers js:babel-core/register",
@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andela-cofor/Document-Management-System.git"
+    "url": "git+https://github.com/treezy254/Document-Management-System.git"
   },
-  "author": "Ofor Chinedu",
+  "author": "Kamau Samuel",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/andela-cofor/Document-Management-System/issues"
+    "url": "https://github.com/treezy254/Document-Management-System/issues"
   },
-  "homepage": "https://github.com/andela-cofor/Document-Management-System#readme",
+  "homepage": "https://github.com/treezy254/Document-Management-System#readme",
   "dependencies": {
     "axios": "^0.16.1",
     "babel-cli": "^6.24.0",
@@ -67,9 +67,10 @@
     "nightwatch": "^0.9.14",
     "nock": "^9.0.13",
     "node-mocks-http": "^1.6.1",
-    "node-sass": "^4.5.2",
+    "node-sass": "^9.0.0",
     "pg": "^6.1.5",
     "pg-hstore": "^2.3.2",
+    "prop-types": "^15.8.1",
     "react": "^15.5.3",
     "react-autobind": "^1.0.6",
     "react-dom": "^15.5.3",
@@ -91,6 +92,7 @@
     "sequelize": "^3.30.3",
     "shortid": "^2.2.8",
     "sinon": "^2.1.0",
+    "sqlite3": "^5.1.6",
     "style-loader": "^0.17.0",
     "swagger-jsdoc": "^1.9.2",
     "sweetalert": "^1.1.3",
@@ -114,12 +116,15 @@
     "mocha": "^3.3.0",
     "mocha-lcov-reporter": "^1.3.0",
     "react-addons-test-utils": "^15.5.1",
-    "sequelize-cli": "^2.7.0",
+    "sequelize-cli": "^2.8.0",
     "should": "^11.2.1",
     "supertest": "^3.0.0",
     "webpack": "^1.15.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-dev-server": "^1.16.4",
     "webpack-hot-middleware": "^2.10.0"
+  },
+  "overrides": {
+    "graceful-fs": "^4.2.11"
   }
 }
