@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class BodyPage extends Component {
   /**
@@ -9,12 +9,13 @@ class BodyPage extends Component {
   render() {
     return (
       <div>
-        { window.location.pathname === '/app/'
-        ? <div className="image">
-          <img src="../../../image/books-659690_1280.jpg" alt="" />
-        </div>
-        : <h4 />
-        }
+        {window.location.pathname === "/app/" ? (
+          <div className="image">
+            <img src="../../../image/books-659690_1280.jpg" alt="" />
+          </div>
+        ) : (
+          <h4 />
+        )}
       </div>
     );
   }

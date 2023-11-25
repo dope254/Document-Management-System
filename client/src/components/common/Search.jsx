@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
-import { Button, Icon, Input } from 'react-materialize';
+import React, { PropTypes } from "react";
+import { Button, Icon, Input } from "react-materialize";
 
-const Search = ({ onChange }) =>
+const Search = ({ onChange }) => (
   <div className="search">
     <Input
       id="search"
@@ -10,8 +10,11 @@ const Search = ({ onChange }) =>
       onChange={onChange}
       validate
       className="search"
-    ><Icon style={{ color: 'white' }} >search</Icon></Input>
-  </div>;
+    >
+      <Icon style={{ color: "white" }}>search</Icon>
+    </Input>
+  </div>
+);
 
 Search.propTypes = {
   onChange: PropTypes.func.isRequired,

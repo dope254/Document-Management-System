@@ -1,0 +1,39 @@
+Add department to users ---+
+Add events model ---+
+Add news model ---+
+associate them models with sum'n
+    - users - sector ---+
+    - news & events - sector ---+
+    - docs - user/availability ---
+      - hapa imenipiga chenga, I want to select stuff and stuff
+
+    - create migrations for 
+      - sectors ---+
+      - roles ---+
+      - users ---+
+      - docs ---+
+      - events ---+
+      - news ---+
+
+
+Write frontend code for intranet:
+    - Implement home page
+    - Implement IT page
+        - Navbar
+        - Footer
+        - sections
+    - Implement notifications
+    - Implement sharing
+    - Implement news and events
+
+-----
+seeder
+--
+
+fix some errors here and there, but first finish the UI
+
+---
+
+UI ---
+sharing -
+Scalability

@@ -12,10 +12,10 @@ require('froala-editor/css/froala_editor.pkgd.min.css');
 // Require Font Awesome.
 // require('font-awesome/css/font-awesome.css');
 
-let FroalaEditor = require('react-froala-wysiwyg');
+import FroalaEditor from 'react-froala-wysiwyg';
 
-// let FroalaEditor = require('react-froala-wysiwyg');
-let FroalaEditorView = require('react-froala-wysiwyg/FroalaEditorView');
+// import FroalaEditor from ('react-froala-wysiwyg');
+import FroalaEditorView from 'react-froala-wysiwyg/FroalaEditorView';
 
 
 /**

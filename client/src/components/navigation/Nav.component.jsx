@@ -38,9 +38,27 @@ class Navbar extends Component {
           )}
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li id="allUsers">
-              {this.props.roles === 1 ? (
+              {this.props.roles ? (
                 <a href="/app/users" className="all-users">
-                  All Users
+                  Staff
+                </a>
+              ) : (
+                <a href="/app/home" />
+              )}
+            </li>
+            <li id="events">
+              {this.props.roles ? (
+                <a href="/app/all/events" className="">
+                  Events
+                </a>
+              ) : (
+                <a href="/app/home" />
+              )}
+            </li>
+            <li id="news">
+              {this.props.roles ? (
+                <a href="/app/all/news" className="">
+                  News
                 </a>
               ) : (
                 <a href="/app/home" />

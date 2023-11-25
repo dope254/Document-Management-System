@@ -1,6 +1,8 @@
+'use strict';
+
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    queryInterface.createTable('Users', {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('Users', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -8,30 +10,44 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       firstName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       lastName: {
-        type: Sequelize.STRING
-      },
-      rolesId: {
-        type: Sequelize.INTEGER
-      },
-      password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       username: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
+      },
+      password: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      rolesId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 2
+      },
+      active: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: true
+      },
+      sectorId: {
+        type: Sequelize.INTEGER,
+        allowNull: true // Modify this as per your requirements
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      active: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false
       },
       updatedAt: {
         allowNull: false,
@@ -39,5 +55,8 @@ module.exports = {
       }
     });
   },
-  down: queryInterface => queryInterface.dropTable('Users'),
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('Users');
+  }
 };

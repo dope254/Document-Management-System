@@ -121,7 +121,29 @@ const Document = {
             pagination
           });
       });
-  }
+  },
+/**
+   * Share a document with another user
+   * Route: POST: /documents/share
+   * @param {Object} req request object containing documentId and userIdToShareWith
+   * @param {Object} res response object
+   * @returns {void} response with success or error message
+   */
+shareDocument(req, res) {
+  const { documentId, userIdToShareWith } = req.body;
+
+  db.DocumentShares.create({
+    documentId,
+    userId: userIdToShareWith,
+  })
+    .then(() => {
+      res.status(200).json({ message: "Document shared successfully" });
+    })
+    .catch((error) => {
+      res.status(500).json({ message: "Error sharing document", error: error.message });
+    });
+},
+
 };
 
 export default Document;

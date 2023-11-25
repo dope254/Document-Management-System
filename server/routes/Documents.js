@@ -265,4 +265,37 @@ docRouter.route('/search/documents')
   Document.search);
 
 
+/**
+ * @swagger
+ * /documents/share:
+ *   post:
+ *     description: Share a document with another user
+ *     tags:
+ *      - Share Documents
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: x-access-token
+ *         in: header
+ *         description: an authorization header
+ *         required: true
+ *         type: string
+ *       - name: documentId
+ *         description: The ID of the document to share
+ *         in: body
+ *         required: true
+ *         type: integer
+ *       - name: userIdToShareWith
+ *         description: The ID of the user to share the document with
+ *         in: body
+ *         required: true
+ *         type: integer
+ *     responses:
+ *       200:
+ *         description: Document shared successfully
+ */
+docRouter.route('/documents/share')
+  .post(Auth.verifyToken, Document.shareDocument);
+
+
 export default docRouter;

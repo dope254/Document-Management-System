@@ -13,7 +13,7 @@ require("froala-editor/css/froala_editor.pkgd.min.css");
 // Require Font Awesome.
 // require('font-awesome/css/font-awesome.css');
 
-const FroalaEditor = require("react-froala-wysiwyg");
+import FroalaEditor from "react-froala-wysiwyg";
 
 /**
  * @class DocumentCreateForm
@@ -32,6 +32,20 @@ class DocumentCreateForm extends Component {
       title: "",
       content: "",
       access: "public",
+
+      froalaConfig: {
+        toolbarButtons: {
+          moreText: {
+            buttons: []
+          },
+          moreParagraph: {
+            buttons: []
+          },
+          moreRich: {
+            buttons: ['insertLink', 'insertImage', 'insertVideo']
+          }
+        }
+      }
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -122,7 +136,7 @@ class DocumentCreateForm extends Component {
               validate
               name="content"
               tag="textarea"
-              config={this.config}
+              config={this.state.froalaConfig}
               model={this.state.model}
               onModelChange={this.handleModelChange}
             />

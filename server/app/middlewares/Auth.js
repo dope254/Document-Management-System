@@ -272,6 +272,47 @@ const Auth = {
         query.where = userSearch;
       }
     }
+
+    if (`${req.baseUrl}${req.route.path}` === '/search/events') {
+      // Handle searching for events based on your requirements
+      // Modify the query.where accordingly
+      // For example:
+      // query.where = { title: { $iLike: { $any: terms } } };
+      if (!req.query.query) {
+        return res.status(400)
+          .send({
+            message: 'Please enter a search query'
+          });
+      }
+      if (Helper.isAdmin(req.tokenDecode.rolesId)) {
+        query.where = Helper.likeSearch(terms);
+      } else {
+        query.where = {
+          $and: [Helper.likeSearch(terms)]
+        };
+      }
+    }
+
+    if (`${req.baseUrl}${req.route.path}` === '/search/news') {
+      // Handle searching for news based on your requirements
+      // Modify the query.where accordingly
+      // For example:
+      // query.where = { title: { $iLike: { $any: terms } } };
+      if (!req.query.query) {
+        return res.status(400)
+          .send({
+            message: 'Please enter a search query'
+          });
+      }
+      if (Helper.isAdmin(req.tokenDecode.rolesId)) {
+        query.where = Helper.likeSearch(terms);
+      } else {
+        query.where = {
+          $and: [Helper.likeSearch(terms)]
+        };
+      }
+    }
+
     req.dmsFilter = query;
     next();
   },
@@ -537,6 +578,48 @@ const Auth = {
             });
         }
         req.singleDocument = document;
+        next();
+      })
+      .catch(error => res.status(500).send(error.errors));
+  },
+  /**
+   * Get a single event
+   * @param {Object} req req object
+   * @param {Object} res response object
+   * @param {Object} next Move to next controller handler
+   * @returns {void|Object} response object or void
+   */
+  getSingleEvent(req, res, next) {
+    db.Events.findById(req.params.id)
+      .then((event) => {
+        if (!event) {
+          return res.status(404).send({
+            message: 'This event cannot be found',
+          });
+        }
+        // Add any additional permission checks if needed
+        req.singleEvent = event;
+        next();
+      })
+      .catch(error => res.status(500).send(error.errors));
+  },
+  /**
+   * Get a single news
+   * @param {Object} req req object
+   * @param {Object} res response object
+   * @param {Object} next Move to next controller handler
+   * @returns {void|Object} response object or void
+   */
+  getSingleNews(req, res, next) {
+    db.News.findById(req.params.id)
+      .then((news) => {
+        if (!news) {
+          return res.status(404).send({
+            message: 'This news cannot be found',
+          });
+        }
+        // Add any additional permission checks if needed
+        req.singleNews = news;
         next();
       })
       .catch(error => res.status(500).send(error.errors));
